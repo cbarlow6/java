@@ -11,30 +11,29 @@ public class DecimalToHex {
 	
 	int number = input.nextInt();
 	int h = 0;
+	String newHex = " ";
+	while (number  > 0){
 	
-	while (number / 16 > 0){
-		//int i=0;
 		  h = number % 16;	
 		
 		switch (h){
-		case 10: System.out.print('A'); break;
-		case 11: System.out.print('B'); break;
-		case 12: System.out.print('C'); break;
-		case 13: System.out.print('D');break;
-		case 14: System.out.print('E'); break;
-		case 15: System.out.print('F'); break;
-		default: System.out.print(h);	
+		case 10: newHex = "A" + newHex; break;
+		case 11: newHex = "B" + newHex; break;
+		case 12: newHex = "C" + newHex; break;
+		case 13: newHex = "D" + newHex;break;
+		case 14: newHex = "E" + newHex; break;
+		case 15: newHex = "F" + newHex; break;
+		default: newHex = h + newHex;	
 		
 		}
 		
-		number = number / 16;
-	
-		
+		number = number / 16;		
 		
 	}
-	System.out.print(number % 16);
+	System.out.print(newHex);
 	
 			
-			
+	input.close();			
 		}
+
 }
