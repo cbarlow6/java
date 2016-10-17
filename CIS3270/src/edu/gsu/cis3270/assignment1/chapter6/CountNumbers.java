@@ -18,58 +18,44 @@ public class CountNumbers {
 		i++;
 		number = input.nextInt();
 	}
-		//System.out.print(array[0]);
-	//for(int k = 0; k < i; k++)	
-		//System.out.println(array[k] + " ");
-	
-	int[] count = count(array, i);
-	//int min = count[0];
-	
-	for(int k = 0; k < i; k++){	
-			if (count[k] == 1)
-				System.out.println(array[k] + " " + " occurs " + count[k] + " time"  );
-			
-			else if (count[k] > 1)
-				System.out.println(array[k] + " " + " occurs " + count[k] + " times"  );
 		
-	}
+	
+	
+	count(array, i);
+	
 		
 	input.close();
 	}
 		
-		public static int[] count(int[] array, int number){
+		public static void count(int[] array, int number){
+			int[] newArray = new int[number];
+			int[] count = new int[100];
 			
-			int[] count = new int[number];
+			System.arraycopy(array, 0, newArray, 0 , number);
 			
-			for (int i = 0; i < count.length; i++){
-				//count[array[i]]++;
+	
+			for(int k = 0; k < count.length; k++){	
+				for (int i = 0; i < newArray.length; i++){	
+					if(newArray[i] == k + 1)
+					 count[k]++;
 				
 				
 				
-				for (int j = 0; j < count.length; j++){
-					if (array[i] == array[j])
-						count[i]++;
+				
 				}
 			
 			}
-			//for(int u: count)
-				//System.out.print(u + " ");
 			
-			return count;
-				
-		}
-
-		/*public static void print(int[] array, int number){
-			int[] newArray = new int[number];
 			
-			for(int i = 0; i < newArray.length; i++){
-				for (int j = 0; j < newArray.length; j++){
-				if (array2[k] == 1 && array)
-		System.out.println(array[k] + " " + " occurs " + array2[k] + " time"  );
-		else
-			System.out.println(array[k] + " " + " occurs " + array2[k] + " times"  );
+			for(int i = 0; i < count.length; i++){
+				if(count[i] != 0){
+					if(count[i] == 1)
+						System.out.println((i + 1) + " occurs " + count[i] + " time");
+					else 
+						System.out.println((i + 1)  + " " + " occurs " + count[i] + " times");
+				}
+			
+			}	
 				
-			}
-		}
-		}*/
+		}			
 }
