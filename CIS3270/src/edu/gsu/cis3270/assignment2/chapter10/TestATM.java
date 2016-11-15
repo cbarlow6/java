@@ -28,6 +28,8 @@ public class TestATM {
 		
 		}
 		
+		Account acct0 = new Account();
+		
 	input.close();	
 	}
 
@@ -43,7 +45,8 @@ class Account {
 	Account(){
 			
 	}
-	public Account(int id, double balance){
+	
+	Account(int id, double balance){
 		this.id = id;
 		this.balance = balance;
 		
