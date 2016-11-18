@@ -4,8 +4,8 @@ import java.util.Date;
 
 public class TestATM {
 	public static void main(String [] args){
-		
-		int[] accounts = new int[]{100, 100, 100, 100, 100, 100, 100, 100, 100, 100};
+		//Account account = new Account(id);
+		//Account account2 = new Account(2);
 		
 		Scanner input = new Scanner(System.in);
 		System.out.println("Enter user id");
@@ -25,30 +25,51 @@ public class TestATM {
 			System.out.println("3: deposit");
 			System.out.println("4: exit");
 			System.out.println("Enter a choice: ");
-		
 		}
 		
-		Account acct0 = new Account();
+		Account account = new Account(id);
+		int choice = input.nextInt();
 		
+		while(choice < 1 || choice > 4){
+			System.out.println("Re-enter user choice");
+			choice = input.nextInt();
+		}
+		
+		while(choice != 4){
+		if(choice == 1)
+			System.out.println("The balance is: " + account.getBalance(id));
+		if(choice == 2){
+			System.out.println("Enter amount to withdraw: " );
+			double amount = input.nextDouble();
+			account.withdraw(id, amount);
+		}
+		if(choice == 3){
+			System.out.println("Enter amount to deposit: " );
+			double amount = input.nextDouble();
+			account.deposit(id, amount);
+		}
+		
+		}
 	input.close();	
 	}
 
 }
 class Account {
 	
-	private int id = 0;
-	private double balance = 0;
-	private double annualInterestRate = 0;
+	private int id;
+	private double balance;
+	private double annualInterestRate;
 	private Date dateCreated = new Date();
+	double[] accounts = new double[]{100, 100, 100, 100, 100, 100, 100, 100, 100, 100};
 	
 	//Constructors
-	Account(){
+	public Account(){
 			
 	}
 	
-	Account(int id, double balance){
+	public Account(int id){
 		this.id = id;
-		this.balance = balance;
+		//this.balance = balance;
 		
 		
 	}
@@ -56,8 +77,8 @@ class Account {
 	public int getId() {
 		return id;
 	}
-	public double getBalance() {
-		return balance;
+	public double getBalance(int id) {
+		return accounts[id];
 	}
 	
 	public double getAnnualInterestRate() {
@@ -74,8 +95,8 @@ class Account {
 		this.id = id;
 	}
 	
-	public void setBalance(double balance){
-		this.balance = balance;
+	public void setBalance(int id, double balance){
+		accounts[id] = balance;
 	}
 	
 	public void setAnnualInterestRate(double annualInterestRate){
@@ -89,20 +110,17 @@ class Account {
 	  }
 
 	public double getMonthlyInterest() {
-		double monthlyInterest = ((getBalance()- withdraw() + deposit()) * getMonthlyInterestRate());
+		double monthlyInterest = (balance * getMonthlyInterestRate());
 		return monthlyInterest;		
 	}
 	
 	
-	public double withdraw(){
-		//amount = 0;
-		return 2500;
+	public void withdraw(int id, double amount){
+		 accounts[id] -= amount;
 		
 	}
-	public double deposit(){
-		//amount = 0;
-		return 3000;
-	//return deposit();
+	public void deposit(int id, double amount){
+		 accounts[id] += amount;
 	}
 	
 	
