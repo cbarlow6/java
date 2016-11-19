@@ -7,18 +7,22 @@ public class TestATM {
 		//Account account = new Account(id);
 		//Account account2 = new Account(2);
 		
+		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in);
+		
+		for( ; ; ){
 		System.out.println("Enter user id");
 		
 		int id = input.nextInt();
-		
+		Account account = new Account(id);
 		while(id > 9 || id < 0){
 			System.out.println("Re-enter user id");
 			id = input.nextInt();
 		}
 		
+		for( ; ; ){
 		if(id <= 9 && id >= 0){
-			
+			System.out.println();
 			System.out.println("Main menu");
 			System.out.println("1: check balance");
 			System.out.println("2: withdraw");
@@ -27,7 +31,7 @@ public class TestATM {
 			System.out.println("Enter a choice: ");
 		}
 		
-		Account account = new Account(id);
+		
 		int choice = input.nextInt();
 		
 		while(choice < 1 || choice > 4){
@@ -36,24 +40,37 @@ public class TestATM {
 		}
 		
 		while(choice != 4){
-		if(choice == 1)
-			System.out.println("The balance is: " + account.getBalance(id));
-		if(choice == 2){
-			System.out.println("Enter amount to withdraw: " );
-			double amount = input.nextDouble();
-			account.withdraw(id, amount);
+			if(choice == 1){
+				System.out.println("The balance is: " + account.getBalance(id));
+				break;
+			}
+			if(choice == 2){
+				System.out.println("Enter amount to withdraw: " );
+				double amount = input.nextDouble();
+				account.withdraw(id, amount);
+				break;
+			}
+			if(choice == 3){
+				System.out.println("Enter amount to deposit: " );
+				double amount = input.nextDouble();
+				account.deposit(id, amount);
+				break;
+			}
+			else
+				break;
+				
 		}
-		if(choice == 3){
-			System.out.println("Enter amount to deposit: " );
-			double amount = input.nextDouble();
-			account.deposit(id, amount);
+		if(choice == 4)
+			break;
+		}
 		}
 		
-		}
-	input.close();	
+	
 	}
 
 }
+
+
 class Account {
 	
 	private int id;
