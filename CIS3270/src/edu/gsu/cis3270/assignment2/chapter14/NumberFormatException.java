@@ -29,8 +29,9 @@ public class NumberFormatException {
 		}
 	}
 	catch (Exception ex){
-		System.out.println("Wrong Input " + ex);	
-	}
+        System.out.println("Wrong Input " + ex.getMessage());
+        System.exit(0);
+    }
 	
 	System.out.println(tokens[0] + ' ' + tokens[1] + ' '
 	 + tokens[2] + " = " + result);

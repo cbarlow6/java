@@ -2,14 +2,14 @@ package edu.gsu.cis3270.assignment2.chapter11;
 import java.util.Date;
 
 public class GeometricObject {
-	String color;
-	boolean filled;
+	public String color;
+	public boolean filled;
 	Date dateCreated;
 
-	GeometricObject(){
+	public GeometricObject(){
 		
 	}
-	GeometricObject(String color, boolean filled){
+	public GeometricObject(String color, boolean filled){
 		this.color = color;
 		this.filled = filled;
 	}
