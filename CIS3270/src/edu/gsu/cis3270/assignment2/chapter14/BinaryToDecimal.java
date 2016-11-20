@@ -9,16 +9,23 @@ public class BinaryToDecimal {
 	    String s = input.nextLine();
 	    try {
 			System.out.println("The decimal value is " + binaryToDecimal(s));
-		} catch (BinaryFormatException e) {
+		} catch (BinaryFormatException ex) {
+			System.out.println(ex.getMessage());
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//ex.printStackTrace();
 		}
 	    
 	    input.close(); 
 	}
 
 	  public static int binaryToDecimal(String binaryString) throws BinaryFormatException{
-	    int value = binaryString.charAt(0) - '0';
+		  int value = binaryString.charAt(0) - '0';
+		  
+		  //for(int i = 0; i < binaryString.length(); i++)
+		  if(value != '1'  || value != '0')
+			  throw new BinaryFormatException();
+		  
+		  
 	    for (int i = 1; i < binaryString.length(); i++) {
 	      value = value * 2 + binaryString.charAt(i) - '0';
 	    }
