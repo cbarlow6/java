@@ -21,8 +21,8 @@ public class BinaryToDecimal {
 	  public static int binaryToDecimal(String binaryString) throws BinaryFormatException{
 		  int value = binaryString.charAt(0) - '0';
 		  
-		  //for(int i = 0; i < binaryString.length(); i++)
-		  if(value != '1'  || value != '0')
+		  for(int i = 0; i < binaryString.length(); i++)
+			  if(binaryString.charAt(i) > '1' )
 			  throw new BinaryFormatException();
 		  
 		  

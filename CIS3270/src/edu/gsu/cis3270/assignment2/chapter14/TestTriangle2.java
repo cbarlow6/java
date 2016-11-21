@@ -23,6 +23,7 @@ public class TestTriangle2 {
         }
         catch (IllegalTriangleException ex) {
         	System.out.println(ex.getMessage());
+        	System.exit(0);
         }
         
         Triangle tri1 = new Triangle(side1, side2, side3);

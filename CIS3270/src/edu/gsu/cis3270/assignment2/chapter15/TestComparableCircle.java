@@ -9,7 +9,7 @@ public class TestComparableCircle{
 	
 	ComparableCircle circle3 = Max.max(circle1, circle2);
 	System.out.println("The circle with the largest area has a radius of: " + 
-			circle3.getRadius() + "\nand area of: " + circle3.getArea());
+			circle3.getRadius()); // + "\nand area of: " + circle3.getArea());
 	System.out.println(circle3);
 	}
 }

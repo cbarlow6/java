@@ -61,7 +61,8 @@ class Triangle extends GeometricObject{
 	public double getArea(){
 		double s = (side1 + side2 + side3)/2;
 		System.out.println(toString());
-		double area = Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));
+		double x =(s*(s - side1) * (s - side2) * (s - side3));
+		double area = Math.sqrt(x);
 		//System.out.println(s);
 		return area;
 	}

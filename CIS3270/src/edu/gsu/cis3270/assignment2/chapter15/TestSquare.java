@@ -1,5 +1,5 @@
 package edu.gsu.cis3270.assignment2.chapter15;
-//import java.util.Arrays;
+//import java.util.*;
 import edu.gsu.cis3270.assignment2.chapter11.*;
 public class TestSquare {
 	public static void main(String[] args){
@@ -9,16 +9,22 @@ public class TestSquare {
 		shapes[2] = new Square(8);
 		shapes[3] = new Square(7);
 		shapes[4] = new Square(4);
-		
-		
+		 
+		shapes[0].setColor("blue");
+		shapes[0].setFilled(true);
+		shapes[1].setColor("green");
+		shapes[1].setFilled(true);
+		shapes[2].setColor("pink");
+		shapes[2].setFilled(true);
+		shapes[3].setColor("gray");
+		shapes[3].setFilled(true);
+		shapes[4].setColor("brown");
+		shapes[4].setFilled(true);
 		
 		for(int i = 0; i < shapes.length; i++){
 			if (shapes[i] instanceof Colorable)
-				System.out.println((Colorable)shapes[i]);
-		
-		
-		}
-				
+				System.out.println((Colorable)shapes[i]);	
+		}			
 	}
 }
 	class Square extends GeometricObject implements Colorable{
